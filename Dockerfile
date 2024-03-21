@@ -1,4 +1,4 @@
-FROM golang:1.22.1-bullseye
+FROM golang:1.22-alpine
 
 # Set necessary environmet variables needed for our image
 ENV GO111MODULE=on \
@@ -24,7 +24,7 @@ RUN go build -a -installsuffix cgo -ldflags="-w -s" -o near_exporter .
 WORKDIR /bin
 
 # Copy binary from build to main folder
-RUN cp /build/main .
+RUN cp /build/near_exporter .
 
 # Export necessary port
 EXPOSE 9333

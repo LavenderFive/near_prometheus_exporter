@@ -18,17 +18,17 @@ sudo docker run -dit \
     --name near-exporter \
     --network=host \
     -p 9333:9333 \
-    masknetgoal634/near-prometheus-exporter:latest /dist/main -accountId <YOUR_POOL_ID>
+    lavenderfive/near-prometheus-exporter:latest /dist/main -accountId <YOUR_POOL_ID> -external-rpc <YOUR RPC>
 ```
 
 
 ### Build own image
 
-    git clone https://github.com/masknetgoal634/near-prometheus-exporter
-
-    cd near-prometheus-exporter
-
-    sudo docker build -t near-prometheus-exporter .
+```
+git clone https://github.com/lavenderfive/near-prometheus-exporter
+cd near-prometheus-exporter
+sudo docker build -t near-exporter .
+```
 
 ```
 sudo docker run -dit \
@@ -36,7 +36,7 @@ sudo docker run -dit \
     --name near-exporter \
     --network=host \
     -p 9333:9333 \
-    near-prometheus-exporter:latest /dist/main -accountId <YOUR_POOL_ID>
+    near-exporter:latest /bin/near_exporter -accountId <YOUR_POOL_ID>
 ```
 
 By default the exporter serves on `:9333` at `/metrics`.
