@@ -21,6 +21,22 @@ sudo docker run -dit \
     lavenderfive/near-prometheus-exporter:latest /dist/main -accountId <YOUR_POOL_ID> -external-rpc <YOUR RPC>
 ```
 
+docker compose
+```
+  near_exporter:
+    image: lavender5/near_prometheus_exporter:latest
+    container_name: near_exporter
+    restart: unless-stopped
+    env_file:
+      - '.env'
+    command:
+      - '/bin/near_exporter'
+      - '-accountId=${NEAR_ACCOUNT_ID}'
+      - '-external-rpc=${NEAR_NODE_URL}'
+      - '-url=${NEAR_NODE_URL}'
+    ports:
+      - "9333:9333"
+```
 
 ### Build own image
 
