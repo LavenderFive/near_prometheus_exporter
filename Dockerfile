@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:1.22.1-bullseye
 
 # Set necessary environmet variables needed for our image
 ENV GO111MODULE=on \
@@ -18,10 +18,10 @@ RUN go mod download
 COPY . .
 
 # Build the application
-RUN go build -a -installsuffix cgo -ldflags="-w -s" -o main .
+RUN go build -a -installsuffix cgo -ldflags="-w -s" -o near_exporter .
 
 # Move to /dist directory as the place for resulting binary folder
-WORKDIR /dist
+WORKDIR /bin
 
 # Copy binary from build to main folder
 RUN cp /build/main .
@@ -30,8 +30,4 @@ RUN cp /build/main .
 EXPOSE 9333
 
 # Command to run when starting the container
-CMD ["/dist/main"]
-
-
-
-
+CMD ["/bin/near_exporter"]
