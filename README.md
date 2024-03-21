@@ -10,7 +10,7 @@ sudo apt install docker.io
 
 ## Usage
 
-You can deploy using the [masknetgoal634/near-prometheus-exporter](https://hub.docker.com/r/masknetgoal634/near-prometheus-exporter) Docker image.
+You can deploy using the [lavender5/near-prometheus-exporter](https://hub.docker.com/r/lavender5/near_prometheus_exporter) Docker image.
 
 ```
 sudo docker run -dit \
@@ -18,7 +18,7 @@ sudo docker run -dit \
     --name near-exporter \
     --network=host \
     -p 9333:9333 \
-    lavenderfive/near-prometheus-exporter:latest /dist/main -accountId <YOUR_POOL_ID> -external-rpc <YOUR RPC>
+    lavenderfive/near_prometheus_exporter:latest /dist/main -accountId <YOUR_POOL_ID> -external-rpc <YOUR RPC> -url <YOUR RPC>
 ```
 
 docker compose
