@@ -18,7 +18,7 @@ sudo docker run -dit \
     --name near-exporter \
     --network=host \
     -p 9333:9333 \
-    lavenderfive/near_prometheus_exporter:latest /dist/main -accountId <YOUR_POOL_ID> -external-rpc <YOUR RPC> -url <YOUR RPC>
+    lavender5/near_prometheus_exporter:latest /dist/main -accountId <YOUR_POOL_ID> -external-rpc <YOUR RPC> -url <YOUR RPC>
 ```
 
 docker compose
